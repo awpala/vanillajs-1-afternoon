@@ -1,6 +1,6 @@
 // console.log('this is a test!');
 
-let board = [];
+// let board = [];
 
 /* 
 N.B. Adopted O(1) algorithm described in https://medium.com/@shray.7/check-tic-tac-toe-winner-at-o-1-time-complexity-a86e644aae13
@@ -21,17 +21,17 @@ function play(clickedId) {
     const playerSpan = document.getElementById('player');
     const clickedElement = document.getElementById(clickedId);
 
+    totalMoves++;
+
     if(playerSpan.innerText === 'X') {
         // Update 'X' entry on board
         playerSpan.innerText = 'O';
         clickedElement.innerText = 'X';
-        board[clickedId] = 'X';
-
-        totalMoves++;
+        // board[clickedId] = 'X';
 
         // Tally 'X' counters
-        rowX[clickedId % sideLength]++;
-        colX[Math.floor(clickedId / sideLength)]++;
+        rowX[Math.floor(clickedId / sideLength)]++;
+        colX[clickedId % sideLength]++;
 
         switch(clickedId) {
             case 0:
@@ -52,13 +52,11 @@ function play(clickedId) {
         // Update 'O' entry on board
         playerSpan.innerText = 'X';
         clickedElement.innerText = 'O';
-        board[clickedId] = 'O';
-
-        totalMoves++;
+        // board[clickedId] = 'O';
 
         // Tally 'O' counters
-        rowO[clickedId % sideLength]++;
-        colO[Math.floor(clickedId / sideLength)]++;
+        rowO[Math.floor(clickedId / sideLength)]++;
+        colO[clickedId % sideLength]++;
 
         switch(clickedId) {
             case 0:
